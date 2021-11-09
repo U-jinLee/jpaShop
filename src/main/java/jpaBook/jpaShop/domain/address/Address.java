@@ -2,10 +2,12 @@ package jpaBook.jpaShop.domain.address;
 
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
 
 @Getter
+@NoArgsConstructor
 @Embeddable
 public class Address {
     private String city;
@@ -17,4 +19,5 @@ public class Address {
         this.street = street;
         this.zipcode = zipcode;
     }
+
 }
