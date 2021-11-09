@@ -1,16 +1,16 @@
 package jpaBook.jpaShop.domain.member;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor
 public class MemberRepository {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public Long save(Member member) {
         entityManager.persist(member);
@@ -29,7 +29,7 @@ public class MemberRepository {
     }
 
     public List<Member> findByName(String name) {
-        return entityManager.createQuery("select m from Member m where m.nam = :name", Member.class)
+        return entityManager.createQuery("select m from Member m where m.name = :name", Member.class)
                 .setParameter("name", name)
                 .getResultList();
     }
