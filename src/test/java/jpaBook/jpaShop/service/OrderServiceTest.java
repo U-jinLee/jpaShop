@@ -24,7 +24,7 @@ public class OrderServiceTest {
         //given
         Member member = new Member();
         Item item = new Book();
-        member.setAddress(new Address("","",""));
+        member.setAddress(new Address("서울","강남","127-1"));
         //when
         //then
     }
