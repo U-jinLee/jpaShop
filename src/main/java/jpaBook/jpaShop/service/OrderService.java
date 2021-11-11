@@ -28,7 +28,7 @@ public class OrderService {
         Item item = itemRepository.findOne(itemId);
 
         //배송정보 생성
-       Delivery delivery = new Delivery();
+        Delivery delivery = new Delivery();
         delivery.setAddress(member.getAddress());
         OrderItem orderItem = OrderItem.createOrderItem(item, item.getPrice(),count);
 
@@ -38,6 +38,11 @@ public class OrderService {
 
         return order.getId();
     }
-    //취소
+    //주문 취소
+    @Transactional
+    public void cancelOrder(Long orderId) {
+        Order order = orderRepository.findOne(orderId);
+        order.cancel();
+    }
     //검색
 }
