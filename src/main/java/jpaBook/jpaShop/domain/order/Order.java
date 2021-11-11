@@ -1,5 +1,6 @@
 package jpaBook.jpaShop.domain.order;
 
+import jpaBook.jpaShop.domain.DeliveryStatus;
 import jpaBook.jpaShop.domain.OrderStatus;
 import jpaBook.jpaShop.domain.delivery.Delivery;
 import jpaBook.jpaShop.domain.member.Member;
@@ -63,4 +64,23 @@ public class Order {
         order.setOrderDate(LocalDateTime.now());
         return order;
     }
+    public void cancel() {
+        if (delivery.getStatus() == DeliveryStatus.COMP){
+            throw new IllegalStateException("이미 배송완료 된 상품입니다.");
+        }
+        this.setStatus(OrderStatus.CANCEL);
+        for(OrderItem orderItem : orderItems) {
+            orderItem.cancel();
+        }
+    }
+
+    public int getTotalPrice() {
+        int totalPrice = 0;
+        for(OrderItem orderItem : orderItems) {
+            totalPrice += orderItem.getTotalPrice();
+        }
+
+        return totalPrice;
+    }
+
 }
