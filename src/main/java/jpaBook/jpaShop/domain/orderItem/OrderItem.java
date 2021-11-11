@@ -27,10 +27,10 @@ public class OrderItem {
     private int count;
 
     //==생성 메서드==//
-    public static OrderItem createOrderItem(Item item, Order order, int count){
+    public static OrderItem createOrderItem(Item item, int orderPrice, int count){
         OrderItem orderItem = new OrderItem();
         orderItem.setItem(item);
-        orderItem.setOrder(order);
+        orderItem.setOrderPrice(orderPrice);
         orderItem.setCount(count);
 
         item.removeStock(count);
