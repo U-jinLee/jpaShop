@@ -24,7 +24,7 @@ public class MemberRepository {
 
     public List<Member> findAll() {
                                         /*table이 아닌 객체에서 찾는다는 점*/
-        return entityManager.createQuery("select m from Meber m", Member.class)
+        return entityManager.createQuery("select m from Member m", Member.class)
                 .getResultList();
     }
 
