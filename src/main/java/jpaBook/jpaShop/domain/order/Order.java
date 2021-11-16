@@ -67,6 +67,7 @@ public class Order {
         order.setOrderDate(LocalDateTime.now());
         return order;
     }
+
     public void cancel() {
         if (delivery.getStatus() == DeliveryStatus.COMP){
             throw new IllegalStateException("이미 배송완료 된 상품입니다.");
