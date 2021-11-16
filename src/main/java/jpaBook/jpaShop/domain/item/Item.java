@@ -24,10 +24,17 @@ public abstract class Item {
 
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
+
+    public void change(String _name, int _price, int _stockQuantity) {
+        this.name = _name;
+        this.price = _price;
+        this.stockQuantity = _stockQuantity;
+    };
+
     //===비즈니스 로직===
     /*
-    * stock 증가
-    * */
+     * stock 증가
+     * */
     public void addStock(int quantity) {
         this.stockQuantity += quantity;
     }
