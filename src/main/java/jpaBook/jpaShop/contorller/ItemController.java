@@ -24,7 +24,7 @@ public class ItemController {
     @GetMapping("/items/new")
     public String createForm(Model model) {
         model.addAttribute("form", new BookForm());
-        return "items/createItemForm";
+        return "/items/createItemForm";
     }
 
     @PostMapping("/items/new")
@@ -64,7 +64,7 @@ public class ItemController {
         bookForm.setIsbn(item.getIsbn());
 
         model.addAttribute("form", bookForm);
-        return "items/updateItemForm";
+        return "/items/updateItemForm";
     }
 
     @PostMapping("/items/{itemId}/edit")
