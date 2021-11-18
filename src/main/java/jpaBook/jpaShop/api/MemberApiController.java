@@ -30,7 +30,7 @@ public class MemberApiController {
         Long id = memberService.join(member);
         return new CreateMemberResponse(id);
     }
-    @PutMapping("/api/v2/membesr/{id}")
+    @PutMapping("/api/v2/members/{id}")
     public UpdateMemberResponse updateMemberV2(@PathVariable Long id,
                                                @RequestBody @Valid UpdateMemberRequestDto requestDto) {
         memberService.update(id, requestDto.getName());
